@@ -1,31 +1,52 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { useGlobalState } from './context';
+import Search from './Search';
 
-const api= 'http://www.omdbapi.com/?apikey=a59ea735&s=batman';
 const App = () => {
-  const [data, setData] = React.useState([]);
-  React.useEffect(() => {
-    fetch(api)
-      .then(res => res.json())
-      .then(data => setData(data.Search));
-  }, []);
+  // <Search />
+  const { state, next , prev, removed} = useGlobalState();
+   
+  
+  const loading = state.loading;
+  const clicked = () => {
+    next();
+  }
+  const clicked1 = () => {
+    prev();
+  }
+  
 
-
-
+  if (loading) {
+    return <div><h1>loading...</h1></div>;
+  } 
   return (
+    <>
+    <Search/>
     <div>
-      <h1>Batman Movies</h1>
-      <ul>
-        {data.map(item => (
-          <li key={item.imdbID}>
-            <h2>{item.Title}</h2>
-            <p>{item.Year}</p>
-            <img src={item.Poster} alt="poster" />
-          </li>
-        ))}
-      </ul>
+      <button onClick={ clicked }>Next</button>
+      <button onClick={ clicked1 }>Prev</button>
+    {
+      state.data.map((item, index) => {
+        return <div key={index}>{item.title}
+             <p>{item.author}</p>
+             {/* <p>{item.points}</p> */}
+              <p>comments ::{item.num_comments}</p>
+              <p>{state.page}</p>
+              <p>{state.nbpages}</p>
+              <a href={item.url} target='blank' >Read more</a>
+  <button onClick={ ()=>removed(item.objectID) }>Remove</button>              
+
+              <p>-----------------</p>
+        </div>
+      }
+
+      )
+
+
+    }
     </div>
-  );
-}
+    </>
+  )
+}   
 
 export default App;
