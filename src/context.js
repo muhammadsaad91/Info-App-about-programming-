@@ -6,7 +6,7 @@ const initialState = {
     data: [],
     loading: true,
     error: null,
-    page: 1,
+    page: 0,
     nbpages: 0,
     query: 'css',
 };
@@ -80,7 +80,7 @@ const removed = (id) => {
             let timeout = setTimeout(() => {
                 fetchapi(`${Api}${state.query}&page=${state.page}`);
                    
-            }, 700);
+            }, 500);
             return () => {
                 clearTimeout(timeout);
             }
