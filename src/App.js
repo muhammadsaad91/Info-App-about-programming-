@@ -12,6 +12,7 @@ const App = () => {
       <Search />
       <br></br>
       <Prnx />
+      <br></br>
       <Area />
     </div>
   )
