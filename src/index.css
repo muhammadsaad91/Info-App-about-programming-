@@ -194,9 +194,7 @@ button:hover{
     }
   }
   @media screen and (max-width: 345px){
-    :root{
-        /* font-size: 0.9rem; */
-    }
+    
     
     .hee h1{
         font-size: 1.6rem;

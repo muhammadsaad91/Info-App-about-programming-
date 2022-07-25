@@ -34,12 +34,12 @@ const reducer = (state, action) => {
             case 'NEXT_PAGE':
             return {
                 ...state,
-                page: action.payload.page,
+                page: state.page<= 48? state.page + 1 : state.page=0 ,
             }
             case 'PREV_PAGE':
             return {
                 ...state,
-                page: action.payload.page,
+               page: state.page <= 0 ? state.page = 0:state.page - 1,
             }
         default:
             return state;

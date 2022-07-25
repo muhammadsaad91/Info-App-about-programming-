@@ -6,7 +6,7 @@ const initialState = {
     data: [],
     loading: true,
     error: null,
-    page: 0,
+    page: 48,
     nbpages: 0,
     query: 'css',
 };
@@ -50,7 +50,7 @@ const next = () => {
     dispatch({
         type: 'NEXT_PAGE',
         payload: {
-            page: state.page + 1,
+            
         }
     })
 }
@@ -59,7 +59,7 @@ const prev = () => {
     dispatch({
         type: 'PREV_PAGE',
         payload: {
-            page: state.page - 1,
+            
         }
     })
 }
