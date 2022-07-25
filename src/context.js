@@ -6,7 +6,7 @@ const initialState = {
     data: [],
     loading: true,
     error: null,
-    page: 48,
+    page: 0,
     nbpages: 0,
     query: 'css',
 };
