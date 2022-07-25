@@ -13,7 +13,7 @@ const Prnx = () => {
         prev();
     }
     return (
-        <div>
+        <div className="ppnn">
             <button onClick={clicked1}>Prev</button>
            <p>{page} of {nbpages}</p>
             <button onClick={clicked}>Next</button>
